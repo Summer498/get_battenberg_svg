@@ -25,7 +25,7 @@ export default function handler (req: NextApiRequest, res: NextApiResponse<strin
     const col4 = parseColor(req.query.col4 || "000");
   
     const battenberg_svg= `<svg width="99" height="99" viewBox="0 0 2 2" xmlns="http://www.w3.org/2000/svg">\n\t<rect x="0" y="0" width="1" height="1" fill="#${col1}"/>\n\t<rect x="1" y="0" width="1" height="1" fill="#${col2}"/>\n\t<rect x="0" y="1" width="1" height="1" fill="#${col3}"/>\n\t<rect x="1" y="1" width="1" height="1" fill="#${col4}"/>\n</svg>`
-    res.setHeader("Content-Type", "image/svg+xml");
+    res.setHeader("Content-Type", "image/svg+xml; charaset=utf-8");
   
     res.status(200).send(battenberg_svg)
   }
