@@ -12,7 +12,6 @@ const parseColor = (color:string | string[]) => {
     }
   }
   else if (_color.match(/^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/)){
-    console.log(_color)
     return _color;
   }
   throw Error(`Invalid color format. (You sent: ${color}) \nPlease use a \n\t6-digit hexadecimal format (e.g., #ff0000), \n\ta 3-digit shorthand hexadecimal format (e.g., #0f0), \n\tor a decimal RGB format (e.g., (000, 000, 255)).`);
