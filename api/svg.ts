@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
 const hex = (num:number, len:number) => (Array(len).join('0') + num.toString(16)).slice(-len);
 
@@ -17,7 +17,7 @@ const parseColor = (color:string | string[]) => {
   throw Error(`Invalid color format. (You sent: ${color}) \nPlease use a \n\t6-digit hexadecimal format (e.g., #ff0000), \n\ta 3-digit shorthand hexadecimal format (e.g., #0f0), \n\tor a decimal RGB format (e.g., (000, 000, 255)).`);
 }
 
-export default function handler (req: NextApiRequest, res: NextApiResponse<string>) {
+export default function handler (req: VercelRequest, res: VercelResponse) {
   try{
     const col1 = parseColor(req.query.col1 || "000");
     const col2 = parseColor(req.query.col2 || "000");
